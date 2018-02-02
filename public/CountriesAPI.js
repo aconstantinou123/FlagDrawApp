@@ -41,5 +41,19 @@ CountriesAPI.prototype.randomizeFlags = function (flags) {
     }
     flagToReturn = flags[0];
     console.log(flagToReturn)
-    return flagToReturn
+    this.displayFlags(flagToReturn)
+}
+
+CountriesAPI.prototype.displayFlags = function (flagToDisplay) {
+    var flagDiv = document.querySelector('#flag-div');
+    var flagLi = document.createElement('li');
+    var flagImg = document.createElement('img');
+    flagImg.src = flagToDisplay[0];
+    console.log(flagToDisplay[0])
+    flagImg.width = 200;
+    flagLi.appendChild(flagImg);
+    flagDiv.appendChild(flagLi);
+    var nameLi = document.createElement('li');
+    nameLi.innerText = flagToDisplay[1];
+    flagDiv.appendChild(nameLi);
 }

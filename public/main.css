@@ -1,10 +1,19 @@
-body{
+body {
     background-image: url('images/world-map-countries.jpg');
     background-size: 100% 100vh;
     background-repeat: no-repeat;
     margin: 0;
     font-family: Helvetica;
 }
+
+/*#flag-div {*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*list-style: none;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: flex-end;*/
+/*}*/
 
 #header-div {
     padding: 0;
@@ -19,9 +28,7 @@ body{
     padding: 0;
     margin: 0;
     list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
 }
 
 #button-div{
@@ -30,7 +37,7 @@ body{
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
 canvas{

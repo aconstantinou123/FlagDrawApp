@@ -24,6 +24,7 @@ window.addEventListener('load', function () {
     var currentY = null;
     var canDraw = false;
 
+
     var draw = function (event) {
         if(canDraw === true) {
             context.beginPath()
