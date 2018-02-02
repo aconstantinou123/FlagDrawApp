@@ -1,4 +1,10 @@
 window.addEventListener('load', function () {
+    var countriesAPI = new CountriesAPI('https://restcountries.eu/rest/v2');
+    countriesAPI.makeRequest();
+    countriesAPI.saveData();
+    var flags = countriesAPI.getFlags();
+    console.log(flags);
+    countriesAPI.randomizeFlags(flags);
     var colorSelector = document.querySelector('#input-color');
     var redButton = document.querySelector('#red');
     var blueButton = document.querySelector('#blue');
@@ -14,8 +20,8 @@ window.addEventListener('load', function () {
     var context = canvas.getContext('2d');
     var prevX = null;
     var prevY = null;
-    var currentX = null
-    var currentY = null
+    var currentX = null;
+    var currentY = null;
     var canDraw = false;
 
     var draw = function (event) {
