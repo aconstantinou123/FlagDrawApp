@@ -15,7 +15,9 @@ describe('Timer', function () {
     })
 
     it('Timer can stop', function () {
-        timer.stop()
+        timer.start();
+        timer.stop();
+        timer.start();
         assert.strictEqual();
     })
 

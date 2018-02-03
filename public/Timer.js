@@ -7,7 +7,6 @@ var Timer = function () {
 
 }
 
-
 Timer.prototype.timer = function () {
     for (var i = 0; i < 120; i++) {
         (function (i) {
@@ -22,7 +21,12 @@ Timer.prototype.timer = function () {
                 }
                 if(this.counting === true){
                     this.second--;
-                    console.log(this.minute, this.second);
+                }
+                else {
+                    this.minute = 2;
+                    this.second = 0;
+                    this.timerBox.innerText = this.minute + ": " + '0' + this.second;
+                    return;
                 }
 
                 if(this.second < 10){
@@ -36,18 +40,11 @@ Timer.prototype.timer = function () {
     }
 }
 
-
-
-
 Timer.prototype.stop = function () {
     this.counting = false;
 }
 
 Timer.prototype.start = function () {
-    this.timerBox.innerText = '';
-    this.minute = 2;
-    this.second = 0;
-    this.timerBox.innerText = this.minute + ": " + this.second;
     this.counting = true;
     this.timer();
 }

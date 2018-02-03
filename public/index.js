@@ -1,5 +1,6 @@
 window.addEventListener('load', function () {
     var timer = new Timer();
+    var buttonCounter = 0;
     var countriesAPI = new CountriesAPI('https://restcountries.eu/rest/v2');
     countriesAPI.makeRequest();
     countriesAPI.saveData();
@@ -18,13 +19,16 @@ window.addEventListener('load', function () {
     var randomButton = document.querySelector('#random');
     var stopButton = document.querySelector('#stop');
     randomButton.addEventListener('click', function () {
-        countriesAPI.randomizeFlags(flags);
-        setTimeout(function () {
-            timer.start();
-        }, 6300);
-    });
+            countriesAPI.randomizeFlags(flags);
+            setTimeout(function () {
+                timer.start();
+                countriesAPI.setCoords(flags);
+            }, 6300);
+            buttonCounter ++;
+    }.bind(this));
     stopButton.addEventListener('click', function () {
         timer.stop();
+        buttonCounter = 0;
     })
     var select = document.querySelector('#brush-size');
     var canvas = document.querySelector('#main-canvas');

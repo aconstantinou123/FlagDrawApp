@@ -24,10 +24,11 @@ CountriesAPI.prototype.saveData = function () {
     var jsonString = localStorage.getItem('countries');
     var countries = JSON.parse(jsonString);
     this.data = countries;
+    console.log(countries);
 }
 
 CountriesAPI.prototype.getFlags = function () {
-    var flags = this.data.map(country = country => [country.flag, country.name])
+    var flags = this.data.map(country = country => [country.flag, country.name, country.latlng])
     return flags;
 }
 
@@ -37,7 +38,7 @@ CountriesAPI.prototype.randomizeFlags = function (flags) {
         let j = Math.floor(Math.random() * (i + 1));
         [flags[i], flags[j]] = [flags[j], flags[i]];
     }
-   this.displayFlags(flags)
+   this.displayFlags(flags);
 }
 
 CountriesAPI.prototype.displayFlags = function (flagsToDisplay) {
@@ -58,6 +59,17 @@ CountriesAPI.prototype.displayFlags = function (flagsToDisplay) {
          }.bind(this))(i);
     }
 }
+
+CountriesAPI.prototype.setCoords = function (flagsToDisplay) {
+    var mapLi = document.querySelector('#map-li')
+    coords = {lat: flagsToDisplay[249][2][0], lng: flagsToDisplay[249][2][1]};
+    console.log(coords)
+    var map = new MapWrapper(mapLi, coords, 4);
+    flagDiv.appendChild(mapLi);
+}
+
+
+
 
 
 

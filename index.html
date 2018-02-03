@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Draw the Flag!</title>
+      <script src='https://maps.googleapis.com/maps/api/js'></script>
       <script src='Timer.js'></script>
     <script src='CountriesAPI.js'></script>
-    <script src='index.js'></script>
+    <script src='Index.js'></script>
+      <script src='MapWrapper.js'></script>
     <link rel='stylesheet' type='text/css' href='main.css'>
   </head>
   <body>
@@ -15,10 +17,11 @@
       <p id="timer"></p>
       <button id="stop">Stop</button>
   </div>
-  <div align="center">
+  <div id="center-div" style="justify-content: center" align="center">
   <div style="display: inline-block" id="canvas-div">
-   <canvas style="display: inline-block" id="main-canvas" width="800" height="500"></canvas>
-      <div style="display: inline-block" id="flag-div"></div>
+   <canvas style="display: inline-block" id="main-canvas" width="600" height="500"></canvas>
+      <li style="display: inline-block" id="map-li"></li>
+      <li style="display: inline-block" id="flag-div"></li>
       <li style="display: inline-block" id="flag-li"></li>
         <img style="display: inline-block" id="flag-img" src="https://i.ytimg.com/vi/bdg2Q7eWrrE/maxresdefault.jpg" width="400">
       <li id="name-li"></li>
