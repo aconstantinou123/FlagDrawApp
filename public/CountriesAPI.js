@@ -29,31 +29,36 @@ CountriesAPI.prototype.saveData = function () {
 CountriesAPI.prototype.getFlags = function () {
     var flags = this.data.map(country = country => [country.flag, country.name])
     return flags;
-    console.log(flags);
 }
 
 
 CountriesAPI.prototype.randomizeFlags = function (flags) {
-    var flagToReturn = null;
     for (let i = flags.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [flags[i], flags[j]] = [flags[j], flags[i]];
     }
-    flagToReturn = flags[0];
-    console.log(flagToReturn)
-    this.displayFlags(flagToReturn)
+   this.displayFlags(flags)
 }
 
-CountriesAPI.prototype.displayFlags = function (flagToDisplay) {
-    var flagDiv = document.querySelector('#flag-div');
-    var flagLi = document.createElement('li');
-    var flagImg = document.createElement('img');
-    flagImg.src = flagToDisplay[0];
-    console.log(flagToDisplay[0])
-    flagImg.width = 200;
-    flagLi.appendChild(flagImg);
-    flagDiv.appendChild(flagLi);
-    var nameLi = document.createElement('li');
-    nameLi.innerText = flagToDisplay[1];
-    flagDiv.appendChild(nameLi);
+CountriesAPI.prototype.displayFlags = function (flagsToDisplay) {
+    var arrayLength = flagsToDisplay.length;
+     for (var i = 0; i < arrayLength; i++) {
+         (function (i) {
+             setTimeout(function () {
+                 var flagDiv = document.querySelector('#flag-div');
+                 var flagLi = document.querySelector('#flag-li');
+                 var flagImg = document.querySelector('#flag-img');
+                 flagImg.src = flagsToDisplay[i][0];
+                 flagLi.appendChild(flagImg);
+                 flagDiv.appendChild(flagLi);
+                 var nameLi = document.querySelector('#name-li');
+                 nameLi.innerText = flagsToDisplay[i][1];
+                 flagDiv.appendChild(nameLi);
+             }, 25*i);
+         }.bind(this))(i);
+    }
 }
+
+
+
+

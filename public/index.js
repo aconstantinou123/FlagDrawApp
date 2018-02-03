@@ -1,10 +1,10 @@
 window.addEventListener('load', function () {
+    var timer = new Timer();
     var countriesAPI = new CountriesAPI('https://restcountries.eu/rest/v2');
     countriesAPI.makeRequest();
     countriesAPI.saveData();
     var flags = countriesAPI.getFlags();
     console.log(flags);
-    countriesAPI.randomizeFlags(flags);
     var colorSelector = document.querySelector('#input-color');
     var redButton = document.querySelector('#red');
     var blueButton = document.querySelector('#blue');
@@ -15,6 +15,15 @@ window.addEventListener('load', function () {
     var blackButton = document.querySelector('#black');
     var brownButton = document.querySelector('#brown');
     var eraseButton = document.querySelector('#white');
+    var randomButton = document.querySelector('#random');
+    var stopButton = document.querySelector('#stop');
+    randomButton.addEventListener('click', function () {
+        countriesAPI.randomizeFlags(flags);
+        timer.start();
+    });
+    stopButton.addEventListener('click', function () {
+        timer.stop();
+    })
     var select = document.querySelector('#brush-size');
     var canvas = document.querySelector('#main-canvas');
     var context = canvas.getContext('2d');
