@@ -19,7 +19,9 @@ window.addEventListener('load', function () {
     var stopButton = document.querySelector('#stop');
     randomButton.addEventListener('click', function () {
         countriesAPI.randomizeFlags(flags);
-        timer.start();
+        setTimeout(function () {
+            timer.start();
+        }, 6300);
     });
     stopButton.addEventListener('click', function () {
         timer.stop();
