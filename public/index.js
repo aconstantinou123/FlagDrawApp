@@ -9,6 +9,11 @@ window.addEventListener('load', function () {
     countriesAPI.saveData();
     var flags = countriesAPI.getFlags();
     console.log(flags);
+    var regionSelector = document.querySelector('#region-select');
+    regionSelector.addEventListener('change', function () {
+        var selectContext = this;
+        flags = countriesAPI.selectRegion(selectContext, flags);
+    });
     var colorSelector = document.querySelector('#input-color');
     var redButton = document.querySelector('#red');
     var blueButton = document.querySelector('#blue');
@@ -23,10 +28,12 @@ window.addEventListener('load', function () {
     var stopButton = document.querySelector('#stop');
     randomButton.addEventListener('click', function () {
             countriesAPI.randomizeFlags(flags);
+            var timeToWait = flags.length * 25;
             setTimeout(function () {
                 timer.start();
                 countriesAPI.setCoords(flags);
-            }, 6300);
+                flags = countriesAPI.getFlags();
+            }, timeToWait);
             buttonCounter ++;
     }.bind(this));
     stopButton.addEventListener('click', function () {
@@ -61,7 +68,6 @@ window.addEventListener('load', function () {
     }
 
     var selectBrushSize = function () {
-        console.log(this.value);
         if(this.value === 'Massive'){
             context.lineWidth = 20;
         }

@@ -28,8 +28,17 @@ CountriesAPI.prototype.saveData = function () {
 }
 
 CountriesAPI.prototype.getFlags = function () {
-    var flags = this.data.map(country = country => [country.flag, country.name, country.latlng])
+    var flags = this.data.map(country = country => [country.flag, country.name, country.latlng, country.region])
     return flags;
+}
+
+CountriesAPI.prototype.selectRegion = function (selectContext, flags) {
+    if(selectContext.value === 'All'){
+        return flags;
+    }
+      return flags.filter(function (flag) {
+            return flag[3] === selectContext.value;
+    })
 }
 
 
@@ -62,7 +71,7 @@ CountriesAPI.prototype.displayFlags = function (flagsToDisplay) {
 
 CountriesAPI.prototype.setCoords = function (flagsToDisplay) {
     var mapLi = document.querySelector('#map-li')
-    coords = {lat: flagsToDisplay[249][2][0], lng: flagsToDisplay[249][2][1]};
+    coords = {lat: flagsToDisplay[flagsToDisplay.length -1][2][0], lng: flagsToDisplay[flagsToDisplay.length-1][2][1]};
     console.log(coords)
     var map = new MapWrapper(mapLi, coords, 4);
     // map.addMarker(coords);
