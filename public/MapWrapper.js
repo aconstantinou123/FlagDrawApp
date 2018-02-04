@@ -5,7 +5,6 @@ var MapWrapper = function (center, coords, zoom) {
         zoom: zoom
     })
     this.markers = [];
-    console.log('mapcreated')
 }
 
 MapWrapper.prototype.addMarker = function (coords) {

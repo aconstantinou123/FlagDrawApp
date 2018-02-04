@@ -1,9 +1,9 @@
 window.addEventListener('load', function () {
+    var timer = null;
+    var buttonClick = 0;
     var mapLi = document.querySelector('map-li');
     var coords = {lat:51.509865, lng: -0.118092};
     var map = new MapWrapper(mapLi, coords, 1);
-    var timer = new Timer();
-    var buttonCounter = 0;
     var countriesAPI = new CountriesAPI('https://restcountries.eu/rest/v2');
     countriesAPI.makeRequest();
     countriesAPI.saveData();
@@ -27,18 +27,24 @@ window.addEventListener('load', function () {
     var randomButton = document.querySelector('#random');
     var stopButton = document.querySelector('#stop');
     randomButton.addEventListener('click', function () {
+        if(buttonClick === 0){
+            timer = new Timer();
             countriesAPI.randomizeFlags(flags);
+            myCanvas.clearCanvas();
             var timeToWait = flags.length * 25;
             setTimeout(function () {
                 timer.start();
                 countriesAPI.setCoords(flags);
                 flags = countriesAPI.getFlags();
+                regionSelector.value = this.default;
+                buttonClick ++;
             }, timeToWait);
-            buttonCounter ++;
-    }.bind(this));
+    }}.bind(this));
     stopButton.addEventListener('click', function () {
         timer.stop();
-        buttonCounter = 0;
+        delete timer;
+        timer = new Timer();
+        buttonClick --;
     })
     var select = document.querySelector('#brush-size');
     var canvas = document.querySelector('#main-canvas');

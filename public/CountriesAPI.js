@@ -73,7 +73,7 @@ CountriesAPI.prototype.setCoords = function (flagsToDisplay) {
     var mapLi = document.querySelector('#map-li')
     coords = {lat: flagsToDisplay[flagsToDisplay.length -1][2][0], lng: flagsToDisplay[flagsToDisplay.length-1][2][1]};
     console.log(coords)
-    var map = new MapWrapper(mapLi, coords, 4);
+    var map = new MapWrapper(mapLi, coords, 5);
     // map.addMarker(coords);
 }
 

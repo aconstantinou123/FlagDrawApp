@@ -23,6 +23,10 @@ MyCanvas.prototype.selectBrushSize = function (value) {
     }
 }
 
+MyCanvas.prototype.clearCanvas = function () {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+}
+
 MyCanvas.prototype.changeColour = function (value) {
     this.context.strokeStyle = value;
 }

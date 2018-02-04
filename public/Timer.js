@@ -23,9 +23,6 @@ Timer.prototype.timer = function () {
                     this.second--;
                 }
                 else {
-                    this.minute = 2;
-                    this.second = 0;
-                    this.timerBox.innerText = this.minute + ": " + '0' + this.second;
                     return;
                 }
 

@@ -7,6 +7,7 @@ body {
 }
 
 .container {
+    padding-left: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
@@ -77,6 +78,7 @@ body {
 }
 
 #name-li{
+    padding-right: 90px;
     text-align: center;
     tab-size: 20px;
     background-color: #B6DCF3
