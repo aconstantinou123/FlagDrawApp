@@ -49,12 +49,12 @@ CountriesAPI.prototype.displayFlags = function (flagsToDisplay) {
                  var flagDiv = document.querySelector('#flag-div');
                  var flagLi = document.querySelector('#flag-li');
                  var flagImg = document.querySelector('#flag-img');
-                 flagImg.src = flagsToDisplay[i][0];
-                 flagLi.appendChild(flagImg);
-                 flagDiv.appendChild(flagLi);
                  var nameLi = document.querySelector('#name-li');
                  nameLi.innerText = flagsToDisplay[i][1];
                  flagDiv.appendChild(nameLi);
+                 flagImg.src = flagsToDisplay[i][0];
+                 flagLi.appendChild(flagImg);
+                 flagDiv.appendChild(flagLi);
              }, 25*i);
          }.bind(this))(i);
     }
@@ -64,8 +64,8 @@ CountriesAPI.prototype.setCoords = function (flagsToDisplay) {
     var mapLi = document.querySelector('#map-li')
     coords = {lat: flagsToDisplay[249][2][0], lng: flagsToDisplay[249][2][1]};
     console.log(coords)
-
     var map = new MapWrapper(mapLi, coords, 4);
+    // map.addMarker(coords);
 }
 
 
