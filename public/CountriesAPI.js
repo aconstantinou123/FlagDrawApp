@@ -64,8 +64,8 @@ CountriesAPI.prototype.setCoords = function (flagsToDisplay) {
     var mapLi = document.querySelector('#map-li')
     coords = {lat: flagsToDisplay[249][2][0], lng: flagsToDisplay[249][2][1]};
     console.log(coords)
+
     var map = new MapWrapper(mapLi, coords, 4);
-    flagDiv.appendChild(mapLi);
 }
 
 

@@ -7,3 +7,11 @@ var MapWrapper = function (center, coords, zoom) {
     this.markers = [];
     console.log('mapcreated')
 }
+
+MapWrapper.prototype.addMarker = function (coords) {
+    var marker = new google.maps.Marker({
+        position: coords,
+        map: this.googleMap,
+    })
+    this.markers.push(marker);
+}
