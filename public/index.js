@@ -42,84 +42,69 @@ window.addEventListener('load', function () {
     })
     var select = document.querySelector('#brush-size');
     var canvas = document.querySelector('#main-canvas');
-    var context = canvas.getContext('2d');
-    var prevX = null;
-    var prevY = null;
-    var currentX = null;
-    var currentY = null;
-    var canDraw = false;
+    var myCanvas = new MyCanvas();
 
 
-    var draw = function (event) {
-        if(canDraw === true) {
-            context.beginPath()
-            context.moveTo(prevX , prevY);
-            currentX = event.layerX;
-            currentY = event.layerY;
-            context.lineTo(currentX, currentY);
-            context.stroke();
-            prevX = currentX;
-            prevY = currentY;
-        }
-    }
+    redButton.addEventListener('click', function () {
+        var value = this.id;
+        console.log(value);
+        myCanvas.changeColour(value);
+    });
+    blueButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
+    greenButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
+    yellowButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
+    orangeButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
+    purpleButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
+    brownButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
+    blackButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
+    eraseButton.addEventListener('click', function () {
+        var value = this.id;
+        myCanvas.changeColour(value);
+    });
 
-    var selectColour = function () {
-        context.strokeStyle = this.value;
-    }
+    colorSelector.addEventListener('change', function () {
+        var colourSelected = this;
+        myCanvas.selectColour(colourSelected);
+    });
 
-    var selectBrushSize = function () {
-        if(this.value === 'Massive'){
-            context.lineWidth = 20;
-        }
-        else if(this.value === 'Thick'){
-            context.lineWidth = 10;
-        }
-        else if (this.value === 'Medium'){
-            context.lineWidth = 5;
-        }
-        else if(this.value === 'Thin'){
-            context.lineWidth = 1;
-        }
-    }
-
-    changeColour = function () {
-        console.log(this.id);
-        context.strokeStyle = this.id;
-    }
-
-    redButton.addEventListener('click', changeColour);
-    blueButton.addEventListener('click', changeColour);
-    greenButton.addEventListener('click', changeColour);
-    yellowButton.addEventListener('click', changeColour);
-    orangeButton.addEventListener('click', changeColour);
-    purpleButton.addEventListener('click', changeColour);
-    brownButton.addEventListener('click', changeColour);
-    blackButton.addEventListener('click', changeColour);
-    eraseButton.addEventListener('click', changeColour);
-
-    colorSelector.addEventListener('change', selectColour);
-
-    select.addEventListener('change', selectBrushSize);
+    select.addEventListener('change', function () {
+        var value = this.value;
+        myCanvas.selectBrushSize(value);
+    });
 
     canvas.addEventListener('mousedown', function (event) {
-        canDraw = true;
-        prevX = event.layerX;
-        prevY = event.layerY;
-        currentX = prevX;
-        currentY  = prevY;
-        console.log(prevX, prevX);
+        myCanvas.startDrawing(event)
     })
 
 
 
     canvas.addEventListener('mousemove', function (event) {
-        draw(event)
+        myCanvas.draw(event);
     })
 
-    canvas.addEventListener('mouseup', function () {
-        canDraw = false;
-        prevX = event.clientX;
-        prevY = event.clientY;
+    canvas.addEventListener('mouseup', function (event) {
+        myCanvas.stopDrawing(event);
     })
 
 })
