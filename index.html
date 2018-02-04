@@ -10,41 +10,40 @@
     <link rel='stylesheet' type='text/css' href='main.css'>
   </head>
   <body>
-  <div id="header-div">
-    <h1>Draw the Flag!</h1>
-  </div>
-  <div id="timer-div">
+  <div class="container">
+    <h1 class="one">Draw the Flag!</h1>
+  <div class="two" id="timer-div">
       <p id="timer"></p>
       <button id="stop">Stop</button>
   </div>
-  <div id="center-div" style="justify-content: center" align="center">
-  <div style="display: inline-block" id="canvas-div">
-   <canvas style="display: inline-block" id="main-canvas" width="600" height="500"></canvas>
-      <li style="display: inline-block" id="map-li"></li>
-      <li style="display: inline-block" id="flag-div"></li>
-      <li style="display: inline-block" id="flag-li"></li>
-        <img style="display: inline-block" id="flag-img" src="https://i.ytimg.com/vi/bdg2Q7eWrrE/maxresdefault.jpg" width="400">
-      <li id="name-li"></li>
-  </div>
-  </div>
-  <div id="button-div">
+   <canvas class="three" id="main-canvas" width="700" height="500"></canvas>
+      <div class="four">
+            <ul id="flag-div">
+                <li id="map-li"></li>
+                <li id="name-li"></li>
+                <li id="flag-li"></li>
+                    <img id="flag-img" src="https://i.ytimg.com/vi/bdg2Q7eWrrE/maxresdefault.jpg" width="420">
+            </ul>
+      </div>
+  <div class="five" id="button-div">
     <input type= 'color' id='input-color'>
      <select id='brush-size'>
-      <option id='massive'>Massive</option>
-      <option id='thick'>Thick</option>
-      <option id='medium'>Medium</option>
-      <option selected ='thin'>Thin</option>
+          <option id='massive'>Massive</option>
+          <option id='thick'>Thick</option>
+          <option id='medium'>Medium</option>
+          <option selected ='thin'>Thin</option>
     </select>
-     <button id='red'>Red</button>
-      <button id='blue'>Blue</button>
-      <button id='green'>Green</button>
-      <button id='yellow'>Yellow</button>
-      <button id='orange'>Orange</button>
-      <button id='purple'>Purple</button>
-      <button id='brown'>Brown</button>
-      <button id='black'>Black</button>
-      <button id='white'>Erase</button>
-      <button id='random'>Get Random Flag</button>
-  </div>
+         <button id='red'>Red</button>
+          <button id='blue'>Blue</button>
+          <button id='green'>Green</button>
+          <button id='yellow'>Yellow</button>
+          <button id='orange'>Orange</button>
+          <button id='purple'>Purple</button>
+          <button id='brown'>Brown</button>
+          <button id='black'>Black</button>
+          <button id='white'>Erase</button>
+          <button id='random'>Get Random Flag</button>
+        </div>
+    </div>
   </body>
 </html>

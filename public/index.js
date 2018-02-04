@@ -1,4 +1,6 @@
 window.addEventListener('load', function () {
+    var mapLi = document.querySelector('#map-li');
+    var map = new MapWrapper(mapLi, {lat: 0, lng: 0}, 0);
     var timer = new Timer();
     var buttonCounter = 0;
     var countriesAPI = new CountriesAPI('https://restcountries.eu/rest/v2');
